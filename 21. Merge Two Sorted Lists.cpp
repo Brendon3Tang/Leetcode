@@ -11,7 +11,7 @@
 class Solution {
 public:
     ListNode* mergeTwoLists(ListNode* list1, ListNode* list2) {
-        ListNode* temp1, *temp2;
+        /*ListNode* temp1, *temp2;
         temp1 = list1;
         temp2 = list2;
         
@@ -48,6 +48,26 @@ public:
             }
             tmp = newNode;
         }
-        return head;
+        return head;*/
+
+        /*
+        * 使用递归：由于新的linked list是从小到大排列，因此小的node肯定在前方。比较两个node，较小的那个node在靠前位置，因此我们使用较小node->next
+        * 最好带入例子进行理解 如list1 [1], list2 [2]/ list1 [1,2,3], list2 [4,5,6]
+        */
+        if(!list1)
+            return list2;
+        if(!list2)
+            return list1;
+        
+        if(list1->val < list2->val)
+        {
+            list1->next = mergeTwoLists(list1->next,list2);
+            return list1;
+        }
+        else
+        {
+            list2->next = mergeTwoLists(list1, list2->next);
+            return list2;
+        }
     }
 };
