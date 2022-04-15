@@ -37,7 +37,7 @@ public:
     }
 };*/
 //空间优化到一维数组后
-//dp[j]为当背包容量为j时，最大可以凑成j的子集总和dp[j]
+//dp[j]为当背包容量为j时，最大可以凑成j的子集总和为dp[j]
 class Solution {
 public:
     bool canPartition(vector<int>& nums) {
