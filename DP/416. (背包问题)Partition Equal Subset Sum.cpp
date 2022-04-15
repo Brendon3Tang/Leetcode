@@ -1,4 +1,4 @@
-class Solution {
+/*class Solution {
 public:
     bool canPartition(vector<int>& nums) {
         int sum = 0;
@@ -34,5 +34,31 @@ public:
         }
         
         return memo[nums.size()-1][target];
+    }
+};*/
+//空间优化到一维数组后
+//dp[j]为当背包容量为j时，最大可以凑成j的子集总和dp[j]
+class Solution {
+public:
+    bool canPartition(vector<int>& nums) {
+        int sum = 0;
+        for(auto it : nums)
+            sum += it;
+        
+        if(sum % 2 != 0)   
+            return false;
+        
+        vector<int> dp((sum/2) + 1,0);
+        int target = sum/2;
+        dp[0] = 0; //
+        for(int i = 0; i < nums.size(); i++) 
+        {
+            for(int j = target; j >= nums[i]; j--) { // 每⼀个元素⼀定是不可重复放⼊，所以从⼤到⼩遍历
+                dp[j] = max(dp[j], dp[j - nums[i]] + nums[i]);
+            }
+        }
+        // 集合中的元素正好可以凑成总和target
+        if (dp[target] == target) return true;
+                return false;
     }
 };
