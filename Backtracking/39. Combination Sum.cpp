@@ -14,11 +14,14 @@ private:
         
         for(int i = startIndex; i < candidates.size(); i++)
         {
-            path.push_back(candidates[i]);
-            count = count + candidates[i];
-            backtracking(candidates,target, i, count);
-            count = count - candidates[i];
-            path.pop_back();
+            if(count + candidates[i] <= target)
+            {
+                path.push_back(candidates[i]);
+                count = count + candidates[i];
+                backtracking(candidates,target, i, count);
+                count = count - candidates[i];
+                path.pop_back();
+            }
         }
     }
 public:
