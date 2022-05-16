@@ -33,9 +33,15 @@ public:
         return root;    */
         
         //别人的精简sol
-        TreeNode* Ltree = root->left;
-        root->left = invertTree(root->right);
-        root->right = invertTree(Ltree);
+        // TreeNode* Ltree = root->left;
+        // root->left = invertTree(root->right);
+        // root->right = invertTree(Ltree);
+        // return root;
+
+        //反转每一个子节点，然后就可以反正整个tree
+        swap(root->left, root->right);
+        invertTree(root->left);
+        invertTree(root->right);
         return root;
     }
 };
