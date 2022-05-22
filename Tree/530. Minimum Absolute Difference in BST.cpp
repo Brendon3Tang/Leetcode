@@ -15,9 +15,9 @@ private:
     {
         if(root == NULL)
             return;
-        vec.push_back(root->val);
         
         traverse(root->left,vec);
+        vec.push_back(root->val);
         traverse(root->right,vec);
         return;
     }
@@ -26,7 +26,7 @@ public:
         vector<int> vec;
         traverse(root,vec);
         int minVal = INT_MAX;
-        sort(vec.begin(),vec.end());
+        //sort(vec.begin(),vec.end());
         for(int i = 0; i < vec.size()-1;i++)
             minVal = min(minVal,vec[i+1] - vec[i]);
         return minVal;
