@@ -17,11 +17,24 @@ public:
         if(root->val == key)
         {
             if(root->left == NULL && root->right == NULL)//2.目标节点没有子节点
+            {
+                delete root;
                 return NULL;
+            }
             else if(root->left == NULL) //3.目标节点无左子节点
-                return root->right;
+            {
+                TreeNode* tmp = root->right;
+                root->right == NULL;
+                delete root;
+                return tmp;
+            }
             else if(root->right == NULL) //4.目标节点无右子节点
-                return root->left;
+            {
+                TreeNode* tmp = root->left;
+                root->left == NULL;
+                delete root;
+                return tmp;
+            }
             else //5.目标节点有两个子节点
             {
                 TreeNode* curr = root;
