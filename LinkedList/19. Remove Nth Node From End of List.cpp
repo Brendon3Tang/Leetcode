@@ -28,13 +28,18 @@ public:
         
         if(count == n)
         {
-            if(!head->next)
+            if(head->next == NULL)
             {
                 count++;
                 return NULL;
             }
             else
-                head = head->next;
+            {
+                ListNode* tmp = head->next;
+                head->next = NULL;
+                delete head;
+                head = tmp;
+            }
         }
         count++;
         return head;
