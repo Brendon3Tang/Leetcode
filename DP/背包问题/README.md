@@ -17,26 +17,29 @@
 - [复习代码随想录第四十五天笔记，看第一道题的思路部分](./../代码随想录算法训练营第四十五天%20|%2070.%20爬楼梯(进阶)、322.%20零钱兑换、279.%20完全平方数.md)
 - [ 宫水三叶的刷题日记 -【动态规划/背包问题】从数学角度推导「完全背包」与「01 背包」之间的遍历顺序关系](https://mp.weixin.qq.com/s?__biz=MzU4NDE3MTEyMA==&mid=2247486107&idx=1&sn=e5fa523008fc5588737b7ed801caf4c3&chksm=fd9ca184caeb28926959c0987208a3932ed9c965267ed366b5b82a6fc16d42f1ff40c29db5f1&token=990510480&lang=zh_CN&scene=21#wechat_redirect)（推荐关注公众号后在手机上用日间模式观看，夜间模式/网页版看不清一些公式）
 
+## 为什么排列问题需要背包在外层for loop，物品在里层for loop？
+- [139. 单词拆分：拓展部分](https://programmercarl.com/0139.%E5%8D%95%E8%AF%8D%E6%8B%86%E5%88%86.html)
+
 ## 背包递推公式
 ### 问能否能装满背包（或者最多装多少）：
 **dp[j] = max(dp[j], dp[j - nums[i]] + nums[i]);** ，对应题⽬如下：
-- 动态规划：416.分割等和⼦集
-- 动态规划：1049.最后⼀块⽯头的重量 II
+- [动态规划：416.分割等和⼦集](https://leetcode.cn/problems/partition-equal-subset-sum/)
+- [动态规划：1049.最后⼀块⽯头的重量 II](https://leetcode.cn/problems/last-stone-weight-ii/)
 
 ### 问装满背包有⼏种⽅法：
 **dp[j] += dp[j - nums[i]]** ，对应题⽬如下：
-- 动态规划：494.⽬标和
+- [动态规划：494.⽬标和](https://leetcode.cn/problems/target-sum/)
 - 动态规划：518. 零钱兑换 II
 - 动态规划：377.组合总和Ⅳ
 - 动态规划：70. 爬楼梯进阶版（完全背包）
 
 ### 背包方案数的公式是怎么来的？
 - 假设dp[ j ]表示取得价值为j的方案一共有dp[ j ]种。
-- 为了方便理解，**可以把背包方案数问题想像成爬楼梯方案数问题**，只是可选择的步数不只有{1,2}两种，而是有{coins[ 0 ], coins[ 1 ], ..., coins[ n ]} n种。所以上到第 j 阶楼梯的方法有dp[j - coins[ 0 ]] + dp[j - coins[ 1 ]] + ... + dp[j - coins[ n ]]种，即dp[ j ] = dp[ j ] + dp[j - coins[ i ]]。（[example可看第四十四天第一题（518. 零钱兑换 II）](../代码随想录算法训练营第四十四天%20|%20518.%20零钱兑换%20II、.md)）
+- 为了方便理解，**可以把背包方案数问题想像成爬楼梯方案数问题**，只是可选择的步数不只有{1,2}两种，而是有{coins[ 0 ], coins[ 1 ], ..., coins[ n ]} n种。所以上到第 j 阶楼梯的方法有dp[j - coins[ 0 ]] + dp[j - coins[ 1 ]] + ... + dp[j - coins[ n ]]种，即dp[ j ] = dp[ j ] + dp[j - coins[ i ]]。（[example可看第四十四天第一题笔记（518. 零钱兑换 II）](../代码随想录算法训练营第四十四天%20|%20518.%20零钱兑换%20II、.md)）
 
 ### 问背包装满最⼤价值：
 **dp[j] = max(dp[j], dp[j - weight[i]] + value[i]);**，对应题⽬如下：
-- 动态规划：474.⼀和零
+- [动态规划：474.⼀和零](https://leetcode.cn/problems/ones-and-zeroes/)
   
 ### 问装满背包所有物品的最⼩个数：
 **dp[j] = min(dp[j - coins[i]] + 1, dp[j]);**，对应题⽬如下：
