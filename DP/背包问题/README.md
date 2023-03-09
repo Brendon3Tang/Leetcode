@@ -29,13 +29,13 @@
 ### 问装满背包有⼏种⽅法：
 **dp[j] += dp[j - nums[i]]** ，对应题⽬如下：
 - [动态规划：494.⽬标和](https://leetcode.cn/problems/target-sum/)
-- 动态规划：518. 零钱兑换 II
-- 动态规划：377.组合总和Ⅳ
-- 动态规划：70. 爬楼梯进阶版（完全背包）
+- [动态规划：518. 零钱兑换 II](https://leetcode.cn/problems/coin-change-ii/)
+- [动态规划：377.组合总和Ⅳ](https://leetcode.cn/problems/combination-sum-iv/)
+- [动态规划：70. 爬楼梯进阶版（完全背包）](https://leetcode.cn/problems/climbing-stairs/)
 
 ### 背包方案数的公式是怎么来的？
 - 假设dp[ j ]表示取得价值为j的方案一共有dp[ j ]种。
-- 为了方便理解，**可以把背包方案数问题想像成爬楼梯方案数问题**，只是可选择的步数不只有{1,2}两种，而是有{coins[ 0 ], coins[ 1 ], ..., coins[ n ]} n种。所以上到第 j 阶楼梯的方法有dp[j - coins[ 0 ]] + dp[j - coins[ 1 ]] + ... + dp[j - coins[ n ]]种，即dp[ j ] = dp[ j ] + dp[j - coins[ i ]]。（[example可看第四十四天第一题笔记（518. 零钱兑换 II）](../代码随想录算法训练营第四十四天%20|%20518.%20零钱兑换%20II、.md)）
+- 为了方便理解，**可以把背包方案数问题想像成爬楼梯方案数问题**，只是可选择的步数不只有{1,2}两种，而是有{coins[ 0 ], coins[ 1 ], ..., coins[ n ]} n种。所以上到第 j 阶楼梯的方法有dp[j - coins[ 0 ]] + dp[j - coins[ 1 ]] + ... + dp[j - coins[ n ]]种，即dp[ j ] = dp[ j ] + dp[j - coins[ i ]]。（[example可看第四十四天第一题笔记（518. 零钱兑换 II）](../代码随想录算法训练营第四十四天%20|%20518.%20零钱兑换%20II、377.%20组合总和%20Ⅳ.md)）
 
 ### 问背包装满最⼤价值：
 **dp[j] = max(dp[j], dp[j - weight[i]] + value[i]);**，对应题⽬如下：
