@@ -36,7 +36,6 @@ board 和 word 仅由大小写英文字母组成
 - 回溯，上下左右寻找。
 - 核心剪枝：if(word[strSize] != board[i][j])    return false;   //对于不相等的值，完全没必要进行递归
 
-
 ### 难点：
 - 核心剪枝：对于不相等的值，完全没必要进行递归
 
@@ -164,7 +163,7 @@ public:
                     if(curC-1 >= 0 && grid[curR][curC-1] == '1' && visited[curR][curC-1] != true)   st.emplace(curR, curC-1);
                 }
                 count++;
-            }
+            } 
         }
         
         return count;
