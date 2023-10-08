@@ -12,6 +12,17 @@ void quickSort(int left, int right, vector<int>& arr)
 	base = arr[left];  //取最左边的数为基准数
 	while (i < j)
 	{
+		/*
+		三种情况：
+		一、当i < j且找到了小于base的arr[j]和大于base的arr[i]时，我们会互换arr[i]与arr[j]
+
+		二、当找到了小于base的arr[j]，但没找到大于base的arr[i]而因此得到i == j的情况时，此时arr[i] == arr[j]，
+		即arr[i]是小于base的，因此在while外基准数归位的时候会互换base和arr[i]，所以比base小的数还是在base左边
+
+		三、当没找到小于base的arr[j]，因此直接得到j == i的情况时，此时arr[j] == arr[i]，
+		此时的arr[i]是经过之前的swap后的数，因此他一定比base小，应该位于base左边。
+		因此在while循环外基准数归位的时候会与base互换，所以
+		还是会在base左边
 		while (arr[j] >= base && i < j)
 			j--;
 		while (arr[i] <= base && i < j)
